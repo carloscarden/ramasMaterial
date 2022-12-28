@@ -1,0 +1,51 @@
+<mat-card class="datosTitulo">
+  <div class="tituloImpresion">
+    <mat-card-title class="titulo">Datos del establecimiento para la impresión </mat-card-title>
+    <span class="exampler-spacer"></span>
+    <button mat-raised-button>
+      <mat-icon>system_update</mat-icon> 
+      ACTUALIZAR
+    </button>
+  </div>
+  <form [formGroup]="formTitulo">
+
+    <div class="form-group">
+      <label for="name">Nombre: </label>
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="validezNacional">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label for="name">C.U.E. Nº: </label>
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="numeroRfifd">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Dirección: </label>
+
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="libroMatrizNro">
+      </mat-form-field>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Ciudad/Distrito: </label>
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="actaNro">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Provincia: </label>
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="folioNro">
+      </mat-form-field>
+    </div>
+
+  </form>
+
+</mat-card>

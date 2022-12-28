@@ -1,0 +1,24 @@
+<br>
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<form *ngIf="!loading">
+  <ul>
+    <li>
+      <label for="name">Apellidos:</label>
+      <span>{{alumnoInfoTitulo.apellido}}</span>
+    </li>
+    <li>
+      <label for="mail">Nombres: </label>
+      <span>{{alumnoInfoTitulo.nombreAlumno}}</span>
+    </li>
+    <li>
+      <label for="mail">Título y orientación: </label>
+      <span>{{alumnoInfoTitulo.tituloDesc}}</span>
+    </li>
+    <li>
+      <label for="mail">Estado del título: </label>
+      <span>{{alumnoInfoTitulo.estadoDelTitulo}}</span>
+    </li>
+  </ul>
+</form>

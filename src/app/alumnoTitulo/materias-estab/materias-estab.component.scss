@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+}
+
+.nota {
+  width: 95px;
+}
+
+th {
+  width: 50px;
+}
+
+.caca {
+  width: 185px;
+}
+
+.busquedas {
+  width: 130px;
+}
+
+
+.tituloImpresion {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1em;
+  border: 1px solid #CCC;
+  padding: 10px;
+
+}
+
+.titulo {
+  font-size: 16px;
+}

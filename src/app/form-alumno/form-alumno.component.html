@@ -1,0 +1,241 @@
+<mat-card>Administracion del alumno</mat-card>
+<br>
+
+{{this.myForm.value | json}}
+<form [formGroup]="myForm" [style.fontSize.px]="14">
+
+    <div formGroupName="dniCompleto">
+        <label for="documentoCompletoAlumno">Tipo y nro de documento*</label>
+        &nbsp;&nbsp;
+        <mat-form-field appearance="outline">
+            <mat-select formControlName="tipoDni" style="width:10vw" class="sm" appearance="outline">
+                <mat-option *ngFor="let opcionDni of tiposDocumento" [value]="opcionDni.id" placeholder="Tipo dni">
+                    {{opcionDni.descCorta}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field style="width:19vw" class="xs" appearance="outline">
+            <input matInput formControlName="documento" appearance="outline">
+        </mat-form-field>
+        &nbsp;
+
+        <button mat-fab mat-mini-fab color="primary" matTooltip="resetear" aria-label="Busqueda" (click)="reset()"
+            *ngIf="alumnoEncontrado">
+            <mat-icon>
+                power_settings_new
+            </mat-icon>
+        </button>
+        <button mat-fab mat-mini-fab color="primary" matTooltip="Ver los datos del alumno"
+            aria-label="Ver los datos del alumno" (click)="buscarAlumno()" *ngIf="!alumnoEncontrado">
+            <mat-icon>search</mat-icon>
+        </button>
+
+    </div>
+
+    <div class="spinner-container" *ngIf="loadingAlumno">
+        <mat-spinner></mat-spinner>
+    </div>
+
+
+
+
+    <div formGroupName="usuario" *ngIf="alumnoEncontrado">
+
+        <div class="form-group">
+            <label for="oeAlumno">Planes de estudio*</label>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            <mat-form-field appearance="outline" style="width:40vw" class="xs">
+                <mat-select formControlName="ofertasEducativas" style="width:38vw" class="multiline-mat-option"
+                    appearance="outline" id="oeAlumno" name="oeAlumno">
+                    <mat-option *ngFor="let opcionOferta of ofertasEducativas" [value]="opcionOferta.id"
+                        placeholder="Tipo oferta">
+                        {{opcionOferta.descripcionOferta}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        &nbsp;
+        <div class="form-group">
+            <label for="apellidos">Apellidos*</label>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+
+            &nbsp; &nbsp;
+            <mat-form-field style="width:40vw" class="sm" appearance="outline">
+                <input matInput formControlName="apellidos" id="apellidos" name="apellidos">
+            </mat-form-field>
+            <mat-error>
+
+            </mat-error>
+        </div>
+
+        <div class="form-group">
+
+            <label for="nombre">Nombre*</label>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp;
+            <mat-form-field style="width:40vw" class="sm" appearance="outline">
+                <input matInput formControlName="nombre" id="nombre" name="nombre">
+            </mat-form-field>
+
+        </div>
+
+        <div class="form-group">
+            <label for="sexo">Sexo* : </label>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;
+
+            <mat-form-field appearance="outline" style="width:40vw" class="xs">
+                <mat-select formControlName="sexo" style="width:38vw" id="sexo" name="sexo" class="multiline-mat-option"
+                    appearance="outline">
+                    <mat-option *ngFor="let opcionSexo of sexoAlumno" [value]="opcionSexo.descCorta"
+                        placeholder="Ingrese sexo">
+                        {{opcionSexo.descLarga}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <label for="nacionalidad">Nacionalidad*</label>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;&nbsp;
+
+            <mat-form-field appearance="outline" style="width:40vw" class="xs">
+                <mat-select formControlName="nacionalidad" style="width:38vw" id="nacionalidad" name="nacionalidad"
+                    class="sm" appearance="outline">
+                    <mat-option *ngFor="let nacion of nacionalidades" [value]="nacion.id" placeholder="Nacionalidad">
+                        {{nacion.nombreNacionalidad}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+
+        <div class="form-group">
+            <label for="fechaNac">Fecha nacimiento* :</label>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;&nbsp; &nbsp;
+            <mat-form-field style="width:40vw" class="sm" appearance="outline" id="fechaNac" name="fechaNac">
+                <input matInput [owlDateTimeTrigger]="dt" [owlDateTime]="dt" 
+                formControlName="fechaNacimiento" [readonly]="true">
+                <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group" *ngIf="!paisOtro()">
+
+            <label for="provinciaNacimiento">Provincia de nacimiento*</label>
+            &nbsp; &nbsp;
+            &nbsp;
+            <mat-form-field appearance="outline" style="width:40vw" class="xs">
+                <mat-select formControlName="provinciaNacimiento" style="width:38vw" id="provinciaNacimiento"
+                    name="provinciaNacimiento" class="multiline-mat-option" appearance="outline">
+                    <mat-option *ngFor="let provincia of provincias" [value]="provincia.id" placeholder="paises">
+                        {{provincia.descripcionProvincia }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+
+        <div class="form-group" *ngIf="paisOtro()">
+            <label for="paisNacimiento">Pais*</label>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;&nbsp;
+            <mat-form-field appearance="outline" style="width:40vw" class="xs">
+            <input type="text" placeholder="Pick one" aria-label="Number" matInput 
+            [formControl]="myForm.get('usuario').get('pais')" [matAutocomplete]="auto" formControlName="pais">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let pais of filteredPaises| async" [value]="pais.name" placeholder="paises">
+                    {{pais.name}}
+                </mat-option>
+            </mat-autocomplete>
+            </mat-form-field>
+        </div>
+
+
+        <div class="form-group">
+            <label for="ciudadNacimiento">Ciudad de nacimiento</label>
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            &nbsp; &nbsp;
+            <mat-form-field style="width:40vw" class="sm" appearance="outline">
+                <input matInput id="ciudadNacimiento" name="ciudadNacimiento" formControlName="ciudadNacimiento">
+            </mat-form-field>
+
+
+        </div>
+
+
+
+
+        <br>
+        <button mat-raised-button color="primary" type="submit" (click)="guardarAlumno()" 
+        [disabled]="myForm.invalid">
+            Guardar
+        </button>
+
+    </div>
+
+
+    <div class="spinner-container" *ngIf="loadingCreacionModificacion">
+        <mat-spinner></mat-spinner>
+    </div>
+
+</form>
+
+<br>
+<mat-card *ngIf="!puedeCrearOModificar">
+    <div *ngIf="alumnoEstabCreador !== datosPerfilService.currentIdSerValue">
+        <span>
+            El alumno se encuentra en el sistema y fue creado por el establecimiento
+            {{alumnoEstabCreador}}. No podrá modificar sus datos personales.
+        </span>
+        <br>
+        <span>
+            Por cualquier modificación de los mismos deberá comunicarse con la rama
+        </span>
+    </div>
+
+    <div *ngIf="alumnoEstabCreador === datosPerfilService.currentIdSerValue">
+        <span>
+            El alumno tiene titulo/s en estado no modificable.
+        </span>
+    </div>
+</mat-card>

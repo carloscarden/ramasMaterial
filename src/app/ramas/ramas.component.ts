@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { FormAlumnoComponent } from '../form-alumno/form-alumno.component';
 
 
 export interface Puntaje {
@@ -46,7 +48,9 @@ export class RamasComponent implements OnInit {
 
   displayedColumns = ['nombre', 'puntuacion'];
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
   }
@@ -54,6 +58,17 @@ export class RamasComponent implements OnInit {
 
   propiedades(puntaje) {
     return Object.keys(puntaje);
+  }
+
+  crearAlumno() {
+    this.dialog.open(FormAlumnoComponent, {
+      autoFocus: false,
+      maxWidth: '140vh',
+      maxHeight: '100vh', // you can adjust the value as per your view
+      data: {
+        establecimiento: '000MS000000'
+      },
+    });
   }
 
 }

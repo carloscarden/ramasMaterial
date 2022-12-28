@@ -1,0 +1,40 @@
+
+<mat-toolbar color="primary">
+  <button mat-button>INICIO</button>
+  <button mat-button [matMenuTriggerFor]="administracion">ADMINISTRACION</button>
+  <mat-menu #administracion="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="titulos">Titulos</button>
+  </mat-menu>
+
+  <mat-menu #titulos="matMenu">
+    <button mat-menu-item routerLink="listadoAlumnoEstabTitulo">Titulos</button>
+  </mat-menu>
+
+
+  <button mat-button routerLink="/roles">SALIR</button>
+  <span class="example-spacer"></span>
+  <p>ESTABLECIMIENTO: 4096AV4689</p> 
+</mat-toolbar>
+
+<app-alumno-info-titulo [idAlumnoEstabOferta]="idAlumnoEstabOferta"></app-alumno-info-titulo>
+<mat-tab-group>
+
+    <mat-tab label="Notas">
+        <br>
+        <app-materias-estab [idAlumnoEstabOferta]="idAlumnoEstabOferta"></app-materias-estab>
+    </mat-tab>
+
+    <mat-tab label="Título">
+        <app-datos-titulo ></app-datos-titulo>
+
+        <br>
+        <app-datos-estab-impresion ></app-datos-estab-impresion>
+        <br>
+
+    </mat-tab>
+
+    <mat-tab label="Observaciones de confección" *ngIf="estadoTitulo === 'PROCESO FINALIZADO'"> 
+        <app-observaciones></app-observaciones>
+    </mat-tab>
+</mat-tab-group>
+

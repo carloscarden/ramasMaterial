@@ -1,0 +1,72 @@
+.tituloImpresion {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.titulo {
+    font-size: 17px;
+    padding: 5px;
+
+}
+
+.datosTitulo {
+    height: 420px;
+}
+form {
+    font-size: 14px;
+}
+
+.form-group {
+    height: 42px;
+}
+
+
+.promedioButton {
+    margin: 9px;
+    bottom: 5px;
+}
+
+.centrado {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.mat-dialog-container {
+    padding: 0;
+}
+
+::ng-deep .mat-form-field-flex>.mat-form-field-infix {
+    padding: 0.4em 0px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+    top: -1.5em;
+}
+
+::ng-deep .mat-form-field {
+    font-size: 14px; // example
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+
+label {
+    /* Tamaño y alineación uniforme */
+    display: inline-block;
+    width: 126px;
+    padding-right: 10px;
+}
+
+mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: -1px -2px 6px -1px rgba(167, 165, 165, 0.48),
+        0px -2px 1px 0 rgba(192, 192, 192, 0.43),
+        1px 2px 3px 0 rgba(150, 149, 149, 0.83);
+}

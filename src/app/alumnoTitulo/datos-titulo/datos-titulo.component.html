@@ -1,0 +1,88 @@
+<mat-card class="headerDatosTitulo">
+  <div class="tituloImpresion">
+    <mat-card-title class="titulo">Administración del título</mat-card-title>
+    <span class="exampler-spacer"></span>
+    <div>
+      <button mat-raised-button>
+        <mat-icon>save</mat-icon>
+        GUARDAR
+      </button>
+      &nbsp;
+      <button mat-raised-button>
+        <mat-icon>check_small</mat-icon>
+      </button>
+      &nbsp;
+      <button mat-raised-button>
+        <mat-icon>mail</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card class="datosTitulo">
+  <mat-card-title class="centrado">Datos del título</mat-card-title>
+  <form [formGroup]="formTitulo">
+    <div class="form-group">
+      <label for="name">Fecha de egreso</label>
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="fechaDeEgreso">
+      </mat-form-field>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Promedio:</label>
+
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="promedio">
+      </mat-form-field>
+      <button mat-raised-button class="promedioButton">
+        <mat-icon>calculate</mat-icon>
+        Calcular promedio real
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Validez Nacional:</label>
+
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="validezNacional">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <label for="name">Número RFIFD:</label>
+
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="numeroRfifd">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Libro matriz Nº* :</label>
+
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="libroMatrizNro">
+      </mat-form-field>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Acta Nº: </label>
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="actaNro">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Folio Nº: </label>
+      <mat-form-field style="width:29vw" class="xs" appearance="outline">
+        <input matInput formControlName="folioNro">
+      </mat-form-field>
+    </div>
+    <label for="observaciones">Observaciones: </label>
+    <mat-form-field style="width:29vw" floatLabel="never" class="xs" appearance="outline">
+      <textarea matInput rows="5" formControlName="observaciones"></textarea>
+    </mat-form-field>
+
+  </form>
+</mat-card>

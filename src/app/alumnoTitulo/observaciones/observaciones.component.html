@@ -1,0 +1,87 @@
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        FILTRO DE OBSERVACIONES
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Administrador</mat-label>
+        <mat-select>
+          <mat-option value="option">Establecimiento</mat-option>
+          <mat-option value="option">Rama</mat-option>
+          <mat-option value="option">Todos</mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;&nbsp;
+      <mat-radio-group [formControl]="floatLabelControl">
+        <mat-radio-button value="auto">Mas reciente</mat-radio-button>
+        &nbsp;&nbsp;
+        <mat-radio-button value="always">Mas antigua</mat-radio-button>
+        &nbsp;&nbsp;
+        <mat-radio-button value="todos">Todos</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+  </mat-expansion-panel>
+
+</mat-accordion>
+
+
+
+<ul>
+  <li>
+    <span class="titulo">Observacion hecha por la RAMA el 2018-10-24 12:19:46.92:</span><br>
+    <span class="observacion">
+      Mal validez nacional, corresponde según la pagina http://reffod.infd.edu.ar,
+      en este caso cohorte 2011 colocar RM N°1808/14, no corresponde la leyenda en las
+      observaciones en relación a los EDI, deben promediar los dos de 4to año y así
+      se obtiene el promedio real , llamar en caso de dudas 221 4895101. Paola
+    </span>
+  </li>
+
+  <li>
+    <span class="titulo">
+      Observacion hecha por el ESTABLECIMIENTO el 2018-12-13 16:01:32.784:</span><br>
+    <span class="observacion">Corregido</span>
+  </li>
+  <li>
+    <span class="titulo">
+      Observacion hecha por la RAMA el 2018-12-14 10:25:34.52:
+    </span><br>
+    <span class="observacion">
+      Remitirse a la corrección anterior, no corresponde la leyenda en observaciones. Luisina.
+    </span>
+  </li>
+  <li>
+
+    <span class="titulo">
+      Observacion hecha por el ESTABLECIMIENTO el 2018-12-17 18:27:06.703:
+    </span><br>
+    <span class="observacion">
+      Consulta, buenas tardes, lo corregí así porque la primera observación la cual fue realizada vía correo
+      electrónico era ponerlo de esta forma , también esta en el título de Camila De escalada -me refiero al EDI II -
+      NOTA Nº... ver título de Camila de Escalada (misma cohorte y especialidad)y aceptado por la dirección el mismo día
+      que los demás son rechazados 14/12/18. El criterio debe ser igual para todos los títulos, estoy desorientada.
+      Gracias
+    </span>
+
+  </li>
+  <li>
+
+    <span class="titulo">
+      Observacion hecha por el ESTABLECIMIENTO el 2018-12-17 18:27:06.703:
+    </span><br>
+    <span class="observacion">
+      Consulta, buenas tardes, lo corregí así porque la primera observación la cual fue realizada vía correo
+      electrónico era ponerlo de esta forma , también esta en el título de Camila De escalada -me refiero al EDI II -
+      NOTA Nº... ver título de Camila de Escalada (misma cohorte y especialidad)y aceptado por la dirección el mismo día
+      que los demás son rechazados 14/12/18. El criterio debe ser igual para todos los títulos, estoy desorientada.
+      Gracias
+    </span>
+
+  </li>
+</ul>
